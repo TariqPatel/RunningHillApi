@@ -10,7 +10,7 @@ namespace API.Controllers
     {
         private static readonly string[] Exclamations = new[]
         {
-            "Exclamations", "Exclamations", "Exclamations", "Exclamations", "Exclamations", "Exclamations", "Exclamations", "Exclamations", "Exclamations", "Exclamations"
+            "ouch", "yuck", "ugh", "yikes", "shoot", "whoops", "rats", "gosh", "congratulations", "cheers"
         };
 
         private readonly ILogger<ExclamationController> _logger;
@@ -23,9 +23,9 @@ namespace API.Controllers
         [HttpGet(Name = "GetExclamations")]
         public IEnumerable<Exclamation> Get()
         {
-            return Enumerable.Range(1, Exclamations.Length).Select(index => new Exclamation
+            return Enumerable.Range(0, Exclamations.Length).Select(index => new Exclamation
             {
-                Word = Exclamations[Random.Shared.Next(Exclamations.Length)]
+                Word = Exclamations[index]
             })
             .ToArray();
         }

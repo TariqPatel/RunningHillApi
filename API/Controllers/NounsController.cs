@@ -10,7 +10,7 @@ namespace API.Controllers
     {
         private static readonly string[] Nouns = new[]
         {
-            "Nouns", "Nouns", "Nouns", "Nouns", "Nouns", "Nouns", "Nouns", "Nouns", "Nouns", "Nouns"
+            "airplane", "box", "bread", "sheep", "pear", "crayons", "ladder", "leaf", "ghost", "bridge"
         };
 
         private readonly ILogger<NounsController> _logger;
@@ -23,9 +23,9 @@ namespace API.Controllers
         [HttpGet(Name = "GetNouns")]
         public IEnumerable<Noun> Get()
         {
-            return Enumerable.Range(1, Nouns.Length).Select(index => new Noun
+            return Enumerable.Range(0, Nouns.Length).Select(index => new Noun
             {
-                Word = Nouns[Random.Shared.Next(Nouns.Length)]
+                Word = Nouns[index]
             })
             .ToArray();
         }

@@ -10,7 +10,7 @@ namespace API.Controllers
     {
         private static readonly string[] Adverbs = new[]
         {
-            "Adverbs", "Adverbs", "Adverbs", "Adverbs", "Adverbs", "Adverbs", "Adverbs", "Adverbs", "Adverbs", "Adverbs"
+            "accordingly", "tomorrow", "then", "previously", "fast", "kindly", "eagerly", "foolishly", "cheerfully", "somewhat"
         };
 
         private readonly ILogger<AdverbController> _logger;
@@ -23,9 +23,9 @@ namespace API.Controllers
         [HttpGet(Name = "GetAdverbs")]
         public IEnumerable<Adverb> Get()
         {
-            return Enumerable.Range(1, Adverbs.Length).Select(index => new Adverb
+            return Enumerable.Range(0, Adverbs.Length).Select(index => new Adverb
             {
-                Word = Adverbs[Random.Shared.Next(Adverbs.Length)]
+                Word = Adverbs[index]
             })
             .ToArray();
         }

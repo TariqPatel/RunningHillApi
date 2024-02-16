@@ -10,7 +10,7 @@ namespace API.Controllers
     {
         private static readonly string[] Verbs = new[]
         {
-            "Verbs", "Verbs", "Verbs", "Verbs", "Verbs", "Verbs", "Verbs", "Verbs", "Verbs", "Verbs"
+            "agree", "concur", "attack", "snap", "shout", "strive", "plead", "inquire", "request", "bloom"
         };
 
         private readonly ILogger<VerbController> _logger;
@@ -23,9 +23,9 @@ namespace API.Controllers
         [HttpGet(Name = "GetVerbss")]
         public IEnumerable<Verb> Get()
         {
-            return Enumerable.Range(1, Verbs.Length).Select(index => new Verb
+            return Enumerable.Range(0, Verbs.Length).Select(index => new Verb
             {
-                Word = Verbs[Random.Shared.Next(Verbs.Length)]
+                Word = Verbs[index]
             })
             .ToArray();
         }

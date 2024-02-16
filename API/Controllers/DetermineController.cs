@@ -10,7 +10,7 @@ namespace API.Controllers
     {
         private static readonly string[] Determines = new[]
         {
-            "Determines", "Determines", "Determines", "Determines", "Determines", "Determines", "Determines", "Determines", "Determines", "Determines"
+            "learn", "determine", "certainty"
         };
 
         private readonly ILogger<DetermineController> _logger;
@@ -23,9 +23,9 @@ namespace API.Controllers
         [HttpGet(Name = "GetDetermines")]
         public IEnumerable<Determine> Get()
         {
-            return Enumerable.Range(1, Determines.Length).Select(index => new Determine
+            return Enumerable.Range(0, Determines.Length).Select(index => new Determine
             {
-                Word = Determines[Random.Shared.Next(Determines.Length)]
+                Word = Determines[index]
             })
             .ToArray();
         }

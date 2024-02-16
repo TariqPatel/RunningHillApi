@@ -10,7 +10,7 @@ namespace API.Controllers
     {
         private static readonly string[] Pronouns = new[]
         {
-            "Pronouns", "Pronouns", "Pronouns", "Pronouns", "Pronouns", "Pronouns", "Pronouns", "Pronouns", "Pronouns", "Pronouns"
+            "I", "you", "he", "she", "it", "we", "they"
         };
 
         private readonly ILogger<PronounController> _logger;
@@ -23,9 +23,9 @@ namespace API.Controllers
         [HttpGet(Name = "GetPronouns")]
         public IEnumerable<Pronoun> Get()
         {
-            return Enumerable.Range(1, Pronouns.Length).Select(index => new Pronoun
+            return Enumerable.Range(0, Pronouns.Length).Select(index => new Pronoun
             {
-                Word = Pronouns[Random.Shared.Next(Pronouns.Length)]
+                Word = Pronouns[index]
             })
             .ToArray();
         }

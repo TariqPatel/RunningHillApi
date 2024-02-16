@@ -10,7 +10,7 @@ namespace API.Controllers
     {
         private static readonly string[] Conjunctions = new[]
         {
-            "Conjunctions", "Conjunctions", "Conjunctions", "Conjunctions", "Conjunctions", "Conjunctions", "Conjunctions", "Conjunctions", "Conjunctions", "Conjunctions"
+            "for", "and", "nor", "but", "or", "yet", "so"
         };
 
         private readonly ILogger<ConjunctionController> _logger;
@@ -23,9 +23,9 @@ namespace API.Controllers
         [HttpGet(Name = "GetConjunctions")]
         public IEnumerable<Conjunction> Get()
         {
-            return Enumerable.Range(1, Conjunctions.Length).Select(index => new Conjunction
+            return Enumerable.Range(0, Conjunctions.Length).Select(index => new Conjunction
             {
-                Word = Conjunctions[Random.Shared.Next(Conjunctions.Length)]
+                Word = Conjunctions[index]
             })
             .ToArray();
         }

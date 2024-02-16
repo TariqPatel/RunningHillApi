@@ -10,7 +10,7 @@ namespace API.Controllers
     {
         private static readonly string[] Prepositions = new[]
         {
-            "Prepositions", "Prepositions", "Prepositions", "Prepositions", "Prepositions", "Prepositions", "Prepositions", "Prepositions", "Prepositions", "Prepositions"
+            "above", "across", "against", "along", "around", "before", "down", "under", "beneath", "off"
         };
 
         private readonly ILogger<PrepositionController> _logger;
@@ -23,9 +23,9 @@ namespace API.Controllers
         [HttpGet(Name = "GetPrepositions")]
         public IEnumerable<Preposition> Get()
         {
-            return Enumerable.Range(1, Prepositions.Length).Select(index => new Preposition
+            return Enumerable.Range(0, Prepositions.Length).Select(index => new Preposition
             {
-                Word = Prepositions[Random.Shared.Next(Prepositions.Length)]
+                Word = Prepositions[index]
             })
             .ToArray();
         }
